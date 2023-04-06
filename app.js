@@ -115,3 +115,5 @@ let precio1 = document.getElementById('precio1');
 let precio2 = document.getElementById('precio2');
 let precio3 = document.getElementById('precio3');
 let precio4 = document.getElementById('precio4');
+
+let añosDeFinanciamiento = Number(prompt="Ingrese la cantidad de años a financiar (de 1 a 3)")
