@@ -82,7 +82,13 @@
 // console.log(resultado)
 // console.log(resultado2)
 
+//Alerta Inicial
+
+Swal.fire('¿Estás listo para conocer la pasión por el Peugeot 208?')
+
 let boton1 = document.getElementById('boton1');
+
+// Utilizo Event Listener
 
 boton1.addEventListener("click",function(){
     alert('Peugeot 208 color rojo, naftero, motor nuevo, 140000km.');
@@ -117,3 +123,67 @@ let precio3 = document.getElementById('precio3');
 let precio4 = document.getElementById('precio4');
 
 let añosDeFinanciamiento = Number(prompt="Ingrese la cantidad de años a financiar (de 1 a 3)")
+
+//Agrego Objetos
+
+const autos = [
+    {
+        id: 1,
+        titulo: "Peugeot 208 Active",
+        año: "2020",
+        precio: 6000,
+        color: "Negro",
+        descripcion: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit repellendus laborum quam saepe pariatur enim doloribus itaque laudantium vitae perferendis.",
+    },
+    {
+        id: 2,
+        titulo: "Peugeot 208 GT",
+        año: "2019",
+        precio: 7000,
+        color: "Azul Noche",
+        descripcion: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit repellendus laborum quam saepe pariatur enim doloribus itaque laudantium vitae perferendis.",
+    },
+    {
+        id: 3,
+        titulo: "Peugeot 208 Allure",
+        año: "2018",
+        precio: 6000,
+        color: "Gris Plata",
+        descripcion: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit repellendus laborum quam saepe pariatur enim doloribus itaque laudantium vitae perferendis.",
+    },
+    {
+        id: 4,
+        titulo: "Peugeot 208 Allure Pack",
+        año: "2015",
+        precio: 5000,
+        color: "Rojo",
+        descripcion: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit repellendus laborum quam saepe pariatur enim doloribus itaque laudantium vitae perferendis.",
+    },
+]
+
+const sectionAutos = document.querySelector(".sectionAutos");
+
+//Cargo Elementos 
+
+window.addEventListener("DOMContentLoaded", function(){
+    let displayAutos = autos.map(function(item){
+        //console.log(item);
+        return `<h1>${item.titulo}</h1>
+        <h2>$${item.precio}</h2>
+        <h3>${item.color}</h3>
+        <p>${item.descripcion}}</p>`;
+    });
+    displayAutos=displayAutos.join("");
+    sectionAutos.innerHTML = displayAutos
+});
+
+
+// Cotización de dolar del momento para que me puedan pagar en pesos  //
+
+    fetch("https://api.bluelytics.com.ar/v2/latest")
+    .then (response => response.json())
+    .then (data => console.log(data))
+    .then (data => console.log(data.blue))
+
+
+
